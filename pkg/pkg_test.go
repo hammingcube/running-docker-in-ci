@@ -31,7 +31,7 @@ func TestAverage(t *testing.T) {
 	if err != nil {
 		t.Errorf("Failed because of %v", err)
 	}
-	command = exec.Command("ls", "-a", "-l")
+	command = exec.Command("ls", "-a", "-l", dir)
 	command.Stdout = os.Stdout
 	command.Stderr = os.Stderr
 	err = command.Run()
