@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -22,6 +23,7 @@ func TestAverage(t *testing.T) {
 	}
 	fmt.Printf("Got working directory as %s\n", cwd)
 	cmd := []string{"docker", "run", "--rm", "-v", fmt.Sprintf("%s:/app", dir), "-w", "/app", "glot/clang", "sh", "-c", "g++ -std=c++11 main.cpp -o a.out && ./a.out"}
+	fmt.Printf("The command:\n%s\n", strings.Join(cmd, " "))
 	command := exec.Command(cmd[0], cmd[1:]...)
 	command.Stdout = os.Stdout
 	command.Stderr = os.Stderr
