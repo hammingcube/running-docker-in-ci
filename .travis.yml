@@ -4,6 +4,9 @@ services:
   - docker
 
 before_install:
+- sudo groupadd docker
+- sudo gpasswd -a $USER docker
+- sudo service docker restart
 - docker pull glot/clang
 
 language: go
