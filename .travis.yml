@@ -7,3 +7,9 @@ before_install:
 - docker pull glot/clang
 
 language: go
+
+script:
+  - chown -R $USER .
+  - go test -v ./...
+
+
