@@ -22,7 +22,7 @@ func TestAverage(t *testing.T) {
 		t.Errorf("Failed because of %v", err)
 	}
 	fmt.Printf("Got working directory as %s\n", cwd)
-	cmd := []string{"docker", "run", "--rm", "-v", fmt.Sprintf("%s:/app", dir), "-w", "/app", "glot/clang", "echo", "hello"}
+	cmd := []string{"docker", "run", "--rm", "-v", fmt.Sprintf("%s:/app", dir), "-w", "/app", "glot/clang", "g++", "main.cpp"}
 	fmt.Printf("The command:\n%s\n", strings.Join(cmd, " "))
 	command := exec.Command(cmd[0], cmd[1:]...)
 	command.Stdout = os.Stdout
