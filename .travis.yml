@@ -4,14 +4,9 @@ services:
   - docker
 
 before_install:
-- sudo gpasswd -a $USER docker
-- sudo service docker restart
 - docker pull glot/clang
 
-language: go
-
 script:
-  - chown -R $USER .
-  - go test -v ./...
+  - docker run --rm -v "$(pwd)":/app -w /app glot/clang g++ main.cpp
 
 
