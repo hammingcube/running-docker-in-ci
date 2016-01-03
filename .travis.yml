@@ -7,6 +7,6 @@ before_install:
 - docker pull glot/clang
 
 script:
-  - sudo docker run --rm -v "$(pwd)":/app -w /app glot/clang g++ main.cpp
+  - docker run --rm -v "$(pwd)":/app -w /app gcc:4.9 g++ main.cpp
 
 
